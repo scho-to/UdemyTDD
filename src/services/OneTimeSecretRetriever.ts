@@ -12,10 +12,8 @@ export class OneTimeSecretRetriever implements SecretRetriever {
     if (!secret) {
       throw new SecretNotFoundError();
     }
-    //try to retrieve a secret
-    //if found return the secret & remove the secret
-    //if not found throw an error
-    return null;
+    await this.secretRepository.removeSecretByUrlId(urlId);
+    return secret;
   }
   
 }
